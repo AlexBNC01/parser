@@ -1,0 +1,15 @@
+runtime: nodejs16
+
+instance_class: F1 # Выберите класс экземпляра, который соответствует вашим требованиям (F1, F2, F4 и т. д.)
+
+automatic_scaling:
+  max_instances: 1 # Установите максимальное количество экземпляров для автомасштабирования
+
+entrypoint: node index.js # Укажите команду для запуска вашего приложения
+
+env_variables:
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'false' # Пропуск загрузки браузера Chromium при установке Puppeteer
+
+handlers:
+- url: /.*
+  script: auto
